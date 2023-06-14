@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h1>Hola Mundo</h1>
+<p>{{grupo}}
+</p>
+<div>El doble de 3 es : {{duplicarN(3)}}</div>
+<div>
+<hr>
+<b>La matricula es: </b>{{alumnos.matricula }}
+</div>
+<div>
+  <b>El alumno es: </b>{{alumnos.nombre | uppercase}}
+</div>
+<div>
+  <b>Nacio el: </b>{{alumnos.fechaNacimiento | date:'dd/MM/yyyy'}}
+</div>
+<div>
+  <b>Su pago es de: </b>{{alumnos.pago | currency:'MXN':true:'1.2-2'}}
+</div>
+</div>
+
+<hr>
+<app-grupo-ievn style="color: aqua;"></app-grupo-ievn>
+<app-ievn></app-ievn>
