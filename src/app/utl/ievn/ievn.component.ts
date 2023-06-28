@@ -7,18 +7,17 @@ import { IAlumnos } from '../alumnos';
   styleUrls: ['./ievn.component.css']
 })
 export class IevnComponent {
-  imageWidth: number = 50;
-  imageHeight: number = 50;
-  
-  imageMargin: number = 2;
-  muesraImg: boolean = true;
-  listFilter: string = '';
 
-  showImage(): void {
-    this.muesraImg = !this.muesraImg;
-  }
+  // alumnos: any[] = []
+  imageWidth:number=50;
+  imageMargin:number=2;
+  muestraImg:boolean=true;
+  listFilter:string='';
 
-  //alumnos: any[] = []
+  showImagen():void{
+  this.muestraImg=!this.muestraImg;
+}
+
   alumnos:IAlumnos[]=[
     {
       "matricula":123,
@@ -42,6 +41,4 @@ export class IevnComponent {
     }
     
   ]
-
-
 }
