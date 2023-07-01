@@ -1,0 +1,102 @@
+<p>alumno-reactive works!</p>
+<div class="row">
+<div class="col-md-6"> 
+<form (ngSubmit)="onSubmit()" [formGroup]="alumnoForm">
+    
+
+    
+
+        <div class="mb-4">
+            <label for="matricula" class="form-label">Matricula</label>
+            <input type="number" class="form-control" required formControlName="matricula" id="matricula" name="matricula">
+            </div>
+            <div *ngIf="alumnoForm.get('matricula')?.touched &&
+            alumnoForm.get('matricula')?.errors?.['required']"
+             class="alert alert-danger">
+                Error: Campo requerido
+
+            </div>
+
+            
+
+            <div class="mb-4">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" required id="nombre" name="nombre">
+                </div>
+                <div *ngIf="alumnoForm.get('nombre')?.touched &&
+                alumnoForm.get('nombre')?.errors?.['required']"
+                class="alert alert-danger">
+                Error: Campo requerido
+
+            </div>
+
+            <div *ngIf="alumnoForm.get('nombre')?.touched &&
+            alumnoForm.get('nombre')?.errors?.['minlength']"
+             class="alert alert-danger">
+                Error: el campo debe tener al menos
+            {{alumnoForm.get('nombre')?.errors?.['minlength']?.requiredLength}} caracteres
+            </div>
+
+                <div class="mb-4">
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="text" formControlName="edad" class="form-control" id="edad" name="edad">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="text" formControlName="correo" class="form-control" id="correo" name="correo">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="pago" class="form-label">Pago</label>
+                            <input type="text" formControlName="pago" class="form-control" id="pago" name="pago">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="foto" class="form-label">Foto</label>
+                                <input type="text" formControlName="foto" class="form-control" id="foto" name="foto">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="calif" class="form-label">Calificación</label>
+                                    <input type="text" formControlName="calif" class="form-control" id="calif" name="calif">
+                                    </div>
+
+
+                                    <div class="d.grid gap-2 col-4 float-end">
+                                        <button class="btn btn-info btn-lg" type="submit">Guardar</button>
+
+                                    </div>
+
+
+
+</form>
+</div>
+
+<div class="col-6">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Matricula</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Correo</th>
+                <th>Pago</th>
+                <th>Calificación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> 
+                <td>{{alumnoForm.get('matricula')?.value}}</td>
+                <td>{{alumnoForm.get('nombre')?.value}}</td>
+                <td>{{alumnoForm.get('edad')?.value}}</td>
+                <td>{{alumnoForm.get('correo')?.value}}</td>
+                <td>{{alumnoForm.get('pago')?.value}}</td>
+                <td>{{alumnoForm.get('calif')?.value}}</td>
+                <td><img src="{{alumnoForm.get('foto')?.value}}" alt="" width="100px"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
